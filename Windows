@@ -1,0 +1,64 @@
+
+
+EMPTY THE RECYCLING BIN (with prompt for confirmation) 
+
+Start-Process -FilePath 'shell:RecycleBinFolder' -Verb Empty - Unless you disabled it, you will still be prompted for confirmation
+
+
+
+OPEN DEVICE MANAGER 
+
+Show-ControlPanelItem -Name 'Device Manager'
+
+ 
+
+OPEN NETWORK PLACES
+
+Start-Process -FilePath shell:NetworkPlacesFolder
+
+
+
+OPEN RUN DIALOG
+
+$shell = New-Object -ComObject Shell.Application
+
+$shell.FileRun( )
+
+
+
+OPEN SOUND SETTINGS
+
+Start-Process -FilePath rundll32.exe -ArgumentList 'shell32.dll,Control_RunDLL mmsys.cpl'
+
+
+
+OPEN WINDOWS SHUTDOWN DIALOG
+
+( New-Object -ComObject Shell.Application ).ShutdownWindows( )
+
+
+
+MessageBox 
+
+Add-Type -AssemblyName System.Windows.Forms
+
+# message is mandatory; title, button and icon are optional
+
+# message with OK only
+
+[void] [System.Windows.Forms.MessageBox]::Show( "Message", "Title", "OK", "Information" )
+
+# answer required
+
+$answer = [System.Windows.Forms.MessageBox]::Show( "Dou you want to continue erasing all files?", "Please Confirm", "YesNoCancel", "Warning" )
+
+
+
+
+Login dialog 
+
+$cred = Get-Credential $UserName # UserName is optional
+
+$newUsername = $cred.GetNetworkCredential( ).UserName
+
+$password = $cred.GetNetworkCredential( ).Password
