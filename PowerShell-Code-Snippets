@@ -1,4 +1,10 @@
 
+EMPTY THE RECYCLING BIN (with prompt for confirmation) 
+
+Start-Process -FilePath 'shell:RecycleBinFolder' -Verb Empty  #Unless you disabled it, you will still be prompted for confirmation
+
+
+
 OPEN DEVICE MANAGER 
 
 Show-ControlPanelItem -Name 'Device Manager'
