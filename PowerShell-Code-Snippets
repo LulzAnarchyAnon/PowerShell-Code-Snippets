@@ -3,6 +3,8 @@ EMPTY THE RECYCLING BIN (with prompt for confirmation)
 
 Start-Process -FilePath 'shell:RecycleBinFolder' -Verb Empty  #Unless you disabled it, you will still be prompted for confirmation
 
+CHANGE WINDOW SIZE 
+powershell -noexit -command "[console]::WindowWidth=10; [console]::WindowHeight=5; [console]::BufferWidth=[console]::WindowWidth"
 
 
 OPEN DEVICE MANAGER 
